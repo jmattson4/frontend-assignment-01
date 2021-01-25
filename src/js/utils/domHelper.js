@@ -1,6 +1,5 @@
 function addToDom(selector, item){
     const location = document.querySelector(selector)
-    console.log(location);
     location.appendChild(item);
 }
 function createEventOnElement(selector, event){
@@ -10,7 +9,6 @@ function createEventOnElement(selector, event){
 
 function checkChildren(selector){
     const location = document.querySelector(selector);
-    console.log(location.children);
     return location.children > 0;
 }
 function removeChildren(selector){
