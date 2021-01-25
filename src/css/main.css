@@ -1,0 +1,96 @@
+body {
+  background-color: #612940;
+}
+
+.app-header h1 {
+  color: #CECCCC;
+  margin-top: 5vh;
+  margin-left: 2.5vw;
+  font-size: 2.4rem;
+}
+
+.search-stock-display {
+  display: flex;
+  margin-left: 20vw;
+  margin-top: 10vh;
+}
+.search-stock-display label {
+  font-size: 1.5rem;
+  color: #CECCCC;
+}
+.search-stock-display input {
+  margin-left: 2vw;
+  background-color: #0F110C;
+  color: #FDECEF;
+}
+.search-stock-display button {
+  margin-left: 2vw;
+  background-color: #0F110C;
+  color: #CECCCC;
+}
+.search-stock-display button:hover {
+  background-color: yellow;
+  color: #0F110C;
+}
+
+.hidden {
+  display: none;
+}
+
+.stock-info-display {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+.stock-info-display h2 {
+  color: #CECCCC;
+  font-size: 2rem;
+  margin-left: 1.5vw;
+  margin-bottom: 1.5vh;
+}
+.stock-info-display .stock-result-display {
+  background-color: #0F110C;
+}
+.stock-info-display .stock-result-display table {
+  min-width: 60vw;
+  max-width: 60vw;
+}
+.stock-info-display .stock-result-display table .checkbox {
+  background-color: yellow;
+}
+.stock-info-display .stock-result-display table tr:hover {
+  background-color: yellow;
+}
+.stock-info-display .stock-result-display table th {
+  color: #CECCCC;
+}
+.stock-info-display .stock-result-display table td {
+  border: 2px solid #0F110C;
+  color: #CECCCC;
+}
+.stock-info-display .global-quote-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 5vw;
+}
+.stock-info-display .global-quote-display aside {
+  background-color: #0F110C;
+  border-radius: 20px;
+}
+.stock-info-display .global-quote-display aside div {
+  padding: 1vh 1.5vw 1vh 1.5vw;
+  margin-bottom: 2vh;
+}
+.stock-info-display .global-quote-display aside div label {
+  font-size: 1.2rem;
+  color: #FDECEF;
+}
+.stock-info-display .global-quote-display aside p {
+  display: inline;
+  color: #CECCCC;
+}
+
+/*# sourceMappingURL=main.css.map */

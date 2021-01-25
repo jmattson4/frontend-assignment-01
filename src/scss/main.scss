@@ -1,0 +1,110 @@
+$font-size: 2rem;
+$main-color: #612940;
+$secondary-color: #FDECEF;
+$third-color: #0F110C;
+$text-color: #CECCCC;
+
+body{
+    background-color: $main-color;
+}
+
+
+.app-header{
+    h1 {
+        color: $text-color;
+        margin-top: 5vh;
+        margin-left: 2.5vw;
+        font-size: $font-size * 1.2;
+    }
+}
+
+
+.search-stock-display {
+    display: flex;
+    margin-left: 20vw;
+    margin-top: 10vh;
+
+    label{
+        font-size: $font-size - 0.5rem;
+        color: $text-color;
+    }
+    input{
+        margin-left: 2vw;
+        background-color: $third-color;
+        color: $secondary-color;
+    }
+
+    button{
+        margin-left: 2vw;
+        background-color: $third-color;
+        color: $text-color;
+    }
+    button:hover{
+        background-color: yellow;
+        color: $third-color;
+    }
+}
+
+.hidden{
+    display:none;
+}
+
+.stock-info-display{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+    margin-left: 5vw;
+    margin-right:5vw;
+
+    h2{
+        color: $text-color;
+        font-size: $font-size;
+        margin-left: 1.5vw;
+        margin-bottom: 1.5vh;
+    }
+
+    .stock-result-display{
+        background-color: $third-color;
+        table{
+            min-width: 60vw;
+            max-width: 60vw;
+            .checkbox{
+                background-color: yellow;
+            }
+            tr:hover{
+                    background-color: yellow;
+            }
+            th{
+                color: $text-color;
+            }
+            td {
+                border: 2px solid $third-color;
+                color: $text-color;
+            }
+        }
+    }
+    .global-quote-display{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 5vw;
+
+        aside{
+            background-color: $third-color;
+            border-radius: 20px;
+            div{
+                padding: 1vh 1.5vw 1vh 1.5vw;
+                margin-bottom: 2vh;
+                
+                label{
+                    font-size: $font-size * 0.6;
+                    color: $secondary-color
+                }
+            }
+            p{
+                display:inline;
+                color: $text-color
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- https://squoosh.app squeeze the hell out of images -->
+    <header class="app-header">
+        <h1>Alpha Vantage Stock API</h1>
+    </header>
+    <main>
+        <section class="search-stock-display">
+            <label for="search-stock">Search Stock by Symbol Name: </label>
+            <input id="search-stock" type="text">
+            <button id="search-button">Search</button>
+        </section>
+        <div class="stock-info-display">
+            <section>
+                <h2 id="h2-stock-display" class="hidden">Stock Info Display</h2>
+                <div class="stock-result-display">
+                    <aside></aside>         
+                </div>
+            </section>
+            <section>
+                <h2 id="h2-global-quote" class="hidden">Global Quote Display</h2>
+                <div class="global-quote-display">
+                    <aside></aside>
+                </div>              
+            </section>
+        </div>
+    </main>
+       
+     <script src="js/index.js" type="module"></script>    
+</body>
+</html>

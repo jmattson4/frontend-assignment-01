@@ -1,0 +1,24 @@
+{
+  "name": "frontend-assignment-01",
+  "version": "1.0.0",
+  "description": "Assignment 01 for my frontend development class",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html ",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [
+    "javascript",
+    "frontend"
+  ],
+  "author": "Jace R Mattson",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "parcel": "^1.12.4"
+  }
+}
