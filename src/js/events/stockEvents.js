@@ -9,44 +9,6 @@
 import { StockController } from '../controllers/stockController';
 import { addToDom, removeChildren } from '../utils/domHelper';
 
-/**
- * This event is ran when the user clicks the search button
- * in the search-stock-display section.
- * 
- * This function returns a function which can be used as an event.
- * The purpose of wrapping the event function is to inject an instance
- * of the stock controller from the index.js file rather than instantiate or 
- * clone a new instance.  
- * @param {StockController} controller 
- */
-function searchStockBar(controller){
-    return async function(event){
-        //This is to prevent double clicks from causing the event to fire twice.
-        if(event.detail > 1) {
-            return 
-        } else {
-            const searchBar = document.querySelector('input');
-            const stockDisplay = document.getElementById('h2-stock-display');
-            const symbolView = await controller.createSymbolMatchView(searchBar.value);
-            
-            //remove previous dom elements.
-            removeChildren('.stock-result-display');
-            //add newly rendered view onto the dom
-            addToDom('.stock-result-display', symbolView);
-            //remove hidden class from the stock-display as it was hidden 
-            // before the user first renders 
-            stockDisplay.classList.remove('hidden');
-            //get the array of tbl rows
-            const tblRows = document.querySelector('.stock-result-display tbody').children; 
-            //iterate through the array and apply the clickRow event to each table row.
-            for (let index = 0; index < tblRows.length; index++) {
-                const clickRow = clickRow(controller);
-                tblRows[index]
-                    .addEventListener('click', clickRow);
-            }
-        }
-    }
-}
 
 /**
  *  This event has StockController injected into it to enable the globalquote view to 
@@ -85,6 +47,45 @@ function clickRow(controller) {
     }
 }
 
+/**
+ * This event is ran when the user clicks the search button
+ * in the search-stock-display section.
+ * 
+ * This function returns a function which can be used as an event.
+ * The purpose of wrapping the event function is to inject an instance
+ * of the stock controller from the index.js file rather than instantiate or 
+ * clone a new instance.  
+ * @param {StockController} controller 
+ */
+function searchStockBar(controller){
+    return async function(event){
+        //This is to prevent double clicks from causing the event to fire twice.
+        if(event.detail > 1) {
+            return 
+        } else {
+            const searchBar = document.querySelector('input');
+            const stockDisplay = document.getElementById('h2-stock-display');
+            const symbolView = await controller.createSymbolMatchView(searchBar.value);
+            //remove previous dom elements.
+            removeChildren('.stock-result-display');
+            //add newly rendered view onto the dom
+            addToDom('.stock-result-display', symbolView);
+            //remove hidden class from the stock-display as it was hidden 
+            // before the user first renders 
+            stockDisplay.classList.remove('hidden');
+            //get the array of tbl rows
+            const tblRows = document.querySelector('.stock-result-display tbody').children; 
+            const click = clickRow(controller)
+            //iterate through the array and apply the clickRow event to each table row.
+            for (let index = 0; index < tblRows.length; index++) {
+                tblRows[index]
+                    .addEventListener('click', click);
+            }
+        }
+    }
+}
+
 export {
-    searchStockBar
+    searchStockBar,
+    clickRow
 }
