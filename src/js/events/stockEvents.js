@@ -25,7 +25,7 @@ function clickRow(controller) {
             //grab elements which will be used.
             const target = event.target.parentElement;
             const symbol = target.children[0];
-            const stockDisplay = document.getElementById('h2-global-quote');
+            const globalQuote = document.getElementById('h2-global-quote');
 
             //if the target classList already has a length and stock has been selected then
             // a click to the row will cause the row to be unclicked resetting the selected data
@@ -33,10 +33,10 @@ function clickRow(controller) {
                 target.className = '';
                 controller.StockService.StockRepo.resetSelectedSymbol();
                 removeChildren('.global-quote-display');
-                stockDisplay.classList.add('hidden');
+                globalQuote.classList.add('hidden');
             } // If no stock is selected then a click will cause one of the rows to be selected
             else if (!controller.StockService.StockRepo.IsSelected) {
-                stockDisplay.classList.remove('hidden');
+                globalQuote.classList.remove('hidden');
                 target.classList.add('checkbox');
                 const gqElem = controller.createGlobalQuoteView(symbol.textContent);
                 gqElem.then(value => {
@@ -65,14 +65,18 @@ function searchStockBar(controller){
         } else {
             const searchBar = document.querySelector('input');
             const stockDisplay = document.getElementById('h2-stock-display');
+            const globalQuote = document.getElementById('h2-global-quote');
             const symbolView = await controller.createSymbolMatchView(searchBar.value);
             //remove previous dom elements.
             removeChildren('.stock-result-display');
+            removeChildren('.global-quote-display');
             //add newly rendered view onto the dom
             addToDom('.stock-result-display', symbolView);
             //remove hidden class from the stock-display as it was hidden 
             // before the user first renders 
             stockDisplay.classList.remove('hidden');
+            globalQuote.classList.add('hidden');
+            controller.StockService.StockRepo.resetSelectedSymbol();
             //get the array of tbl rows
             const tblRows = document.querySelector('.stock-result-display tbody').children; 
             const click = clickRow(controller)

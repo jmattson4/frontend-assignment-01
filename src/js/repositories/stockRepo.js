@@ -4,8 +4,8 @@ import { GlobalQuote } from '../models/globalQuoteModel';
  * StockRepository
  * 
  * This class holds the applications data which is queried from the Stock API.
- * It provides a caching function for the application as well as provides an 
- * API to query the cache,
+ * It is essentially a store for the application and is used to hold data
+ * 
  */
 class StockRepository {
     /**
@@ -41,7 +41,7 @@ class StockRepository {
     }
 
     /**
-     * Essentially a reconstructor in case the repo needds to be reset.
+     * Essentially a reconstructor in case the repo needs to be reset.
      * @param {Array<SymbolMatch>} symbolMatchs 
      */
     replace(symbolMatchs = []){
@@ -65,7 +65,6 @@ class StockRepository {
         if(this.SelectedSymbol.Symbol = symbol) 
             return this.SelectedSymbol;
         this.SelectedSymbol = this.SymbolMatchs.filter(sym => sym.Symbol === symbol);
-        console.log(this.SelectedSymbol);
         return this.SelectedSymbol;
     }
 }

@@ -56,6 +56,9 @@ class StockService {
     async symbolSearch(keywords) {
         if (keywords == undefined)
             throw new Error("Please provide keyword for the symbol search.");
+        if (keywords.length > 4){
+            throw new Error("Stock Ticker symbol length cannot be greater than 4 characters.");
+        }
         const queryString = `query?function=SYMBOL_SEARCH&keywords=${keywords}&apikey=${this.ApiKey}`;
         let response = await getRequest(this.Origin, queryString);
         response = await response.json();
@@ -80,8 +83,7 @@ class StockService {
         const queryString = `query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${this.ApiKey}`;
         let response = await getRequest(this.Origin, queryString);
         response = await response.json();
-        console.log(response);
-
+        //create new GlobalQuote object
         const global = new GlobalQuote(
             response["Global Quote"]["01. symbol"],
             response["Global Quote"]["02. open"],
@@ -89,7 +91,11 @@ class StockService {
             response["Global Quote"]["04. low"],
             response["Global Quote"]["05. price"]       
         )
+        //Set the Selected GlobalQuote to the new GlobalQuote object
         this.StockRepo.SelectedGlobalQuote = global;
+        //then set the Stockrepo.iSSelcted attribute to true this is to make sure
+        //  the user cant click another stock while the Global Quote Display
+        //  is selected.
         this.StockRepo.IsSelected = true;
         return this.StockRepo.SelectedGlobalQuote
     }
