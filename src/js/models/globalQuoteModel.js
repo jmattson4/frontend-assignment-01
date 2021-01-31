@@ -7,6 +7,7 @@ class GlobalQuote {
         this.High = high;
         this.Low = low;
         this.ClosePrice = closePrice;
+        this.DatePulled = new Date(Date.now());
     }
 }
 

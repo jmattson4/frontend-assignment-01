@@ -20,6 +20,10 @@ const gqTemplate = `<aside>
         <label for="gq-price">Price: </label>
         <p id=gq-price>$<%= globalQuote.ClosePrice %></p>    
     </div>
+    <div>
+        <label for="gq-price">Date: </label>
+        <p id=gq-price><%= globalQuote.DatePulled %></p>    
+    </div>    
 </aside>`;
 
 
